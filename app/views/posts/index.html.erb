@@ -1,1 +1,16 @@
 <h1> Welcome to Instagram </h1>
+
+<h2>Posts</h2>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= post.caption %>
+    </li>
+  <% end %>
+</ul>
+
+<p><%= link_to new_post_path do %>
+  New post
+<% end %></p>
+
