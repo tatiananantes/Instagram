@@ -1,0 +1,7 @@
+<% form_for Post.new do |form| %>
+  
+  <%= form.file_field :image %>
+  <%= form.text_field :message %>
+
+  <%= form.submit "Create Post" %>
+<% end %>
