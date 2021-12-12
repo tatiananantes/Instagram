@@ -1,7 +1,20 @@
-<% form_for Post.new do |form| %>
-  
+<%= form_with model: @post do |form| %>
+   <div>
+  <%= form.label :caption %>
+  <%= form.text_area :caption, size: "20x5" %>
+  <% @post.errors.full_messages_for(:caption).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+  <%= form.label :image %>
   <%= form.file_field :image %>
-  <%= form.text_field :message %>
-
+  <% @post.errors.full_messages_for(:image).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+ 
+  <div>
   <%= form.submit "Create Post" %>
+  </div>
 <% end %>
