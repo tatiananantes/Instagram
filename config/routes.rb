@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  root 'posts#index'
+  get 'home/index'
+  root 'home#index'
   resources :posts
 end
