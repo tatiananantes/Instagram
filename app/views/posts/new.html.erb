@@ -1,5 +1,6 @@
+<div>
 <%= form_with model: @post do |form| %>
-   <div>
+  <div>
   <%= form.label :caption %>
   <%= form.text_area :caption, size: "20x5" %>
   <% @post.errors.full_messages_for(:caption).each do |message| %>
@@ -18,3 +19,4 @@
   <%= form.submit "Create Post" %>
   </div>
 <% end %>
+</div>

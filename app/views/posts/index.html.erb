@@ -1,15 +1,24 @@
-<h2>Posts</h2>
 
-<ul>
-  <% @posts.reverse.each do |post| %>
-    <li>
-      <%= post.image %>
-      <%= post.caption %>
-    </li>
-  <% end %>
-</ul>
+<% name = current_user.present? ? current_user.username : "Stranger" %>
 
-<p><%= link_to new_post_path do %>
+<h2>Welcome, <%= name %></h2>
+
+
+<% if logged_in? %>
+  <% @posts.each do |post| %>
+  <div>
+      <%= link_to post.caption, post %>
+        <% if post.image.attached? %>
+         <image src="<%=(url_for(post.image))%>"> 
+        <% end %>
+    </div><br>
+      <% end %>
+     
+    </div>>
+  
+<br>
+
+<%= link_to new_post_path do %>
   New post
-<% end %></p>
-
+<% end %>
+<% end %>
