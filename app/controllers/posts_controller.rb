@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
-  before_action :find_user 
+   require 'mini_magick'
+   before_action :authenticate_user!
+ 
   
   def new
     @post = Post.new
   end
 
   def create 
-    Post.create(post_params.merge(user_id: session[:user.id]))
-    # Post.create(post_params.merge(user_id: current_user.id))
+    Post.new(post_params.merge(user_id: session[:user_id]))
     redirect_to posts_path
   end
 
@@ -19,6 +20,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
  
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
+  end
 private 
 
 def post_params

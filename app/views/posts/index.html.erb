@@ -6,16 +6,14 @@
 
 <% if logged_in? %>
   <% @posts.each do |post| %>
-  <div>
+  <div id='post-index'>
       <%= link_to post.caption, post %>
         <% if post.image.attached? %>
-         <image src="<%=(url_for(post.image))%>"> 
+         <image src="<%=(url_for(post.image))%>" width="500" height="500"> 
         <% end %>
     </div><br>
       <% end %>
-     
-    </div>>
-  
+
 <br>
 
 <%= link_to new_post_path do %>

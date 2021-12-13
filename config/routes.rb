@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  
-  root 'sessions#login'
+  root 'home#index'
+
+  # root 'sessions#login'
   #users routes 
   resources :users
 # posts routes
